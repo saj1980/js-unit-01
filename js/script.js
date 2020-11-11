@@ -14,7 +14,8 @@ project 1 - A Random Quote Generator
 let quotes = [
   {
     quote: 'Your greatest awakening comes, when you are aware about your infinite nature.',
-    source: 'Amit Ray, Meditation: Insights and Inspirations'
+    source: 'Amit Ray, Meditation: Insights and Inspirations', 
+    year: '1980'
   }, 
   {
     quote: `I give no sources, because it is indifferent to me
@@ -71,9 +72,16 @@ function printQuote(){
   let printQuoteObj = getRandomQuote();
   let printQuote = printQuoteObj['quote'];
   let printQuoteSource = printQuoteObj['source'];
+  let printQuoteYear;
+  if(printQuoteObj['year']){
+    printQuoteYear = printQuoteObj['year'];
+  } else {
+    printQuoteYear = 'No body knows'
+  }
+  
   let print = `
         <p class="quote">${printQuote}</p>
-        <p class="source">${printQuoteSource}<span class="citation">Twitter</span><span class="year">2016</span></p>
+        <p class="source">${printQuoteSource}<span class="citation">Twitter</span><span class="year">Year: ${printQuoteYear}</span></p>
   `;
   return document.getElementById("quote-box").innerHTML = print;
 
