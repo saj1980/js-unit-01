@@ -21,7 +21,9 @@ let quotes = [
     quote: `I give no sources, because it is indifferent to me
             whether what I have thought has already been
             thought before me by another.`,
-    source: 'Ludwig Wittgenstein, Tractatus Logico-Philosophicus'
+    source: 'Ludwig Wittgenstein, Tractatus Logico-Philosophicus',
+    year: '1992',
+    citation: 'Wikipedia'
   }, 
   {
     quote: `Most folks are about as happy as they make up their minds to be.`,
@@ -33,7 +35,8 @@ let quotes = [
   }, 
   {
     quote: `Happiness is nothing more than good health and a bad memory.`,
-    source: `Albert Schweitzer`
+    source: `Albert Schweitzer`,
+    year: '2001'
   }, 
   {
     quote: `The happiness of a man in this life does not consist in the absence but in the mastery of his passions.`,
@@ -73,15 +76,21 @@ function printQuote(){
   let printQuote = printQuoteObj['quote'];
   let printQuoteSource = printQuoteObj['source'];
   let printQuoteYear;
+  let printQuoteCitation; 
   if(printQuoteObj['year']){
     printQuoteYear = printQuoteObj['year'];
   } else {
-    printQuoteYear = 'No body knows'
+    printQuoteYear = 'No body knows';
+  }
+  if(printQuoteObj['citation']){
+    printQuoteCitation = printQuoteObj['citation'];
+  } else {
+    printQuoteCitation = 'No body knows';
   }
   
   let print = `
         <p class="quote">${printQuote}</p>
-        <p class="source">${printQuoteSource}<span class="citation">Twitter</span><span class="year">Year: ${printQuoteYear}</span></p>
+        <p class="source">${printQuoteSource}<span class="citation">Citation: ${printQuoteCitation}</span><span class="year">Year: ${printQuoteYear}</span></p>
   `;
   return document.getElementById("quote-box").innerHTML = print;
 
